@@ -15,20 +15,20 @@ func main() {
 	c := 1
 	a := 0
 	b := 0
-	for _, r := range args[0] {
+	for i, r := range args[0] {
 		if r >= '0' && r <= '9' {
 			a = a*10 + int(r-'0')
-		} else if args[0][0] == '-' {
+		} else if i == 0 && r == '-' {
 			c = -1
 		} else {
 			fmt.Println("0")
 			return
 		}
 	}
-	for _, r := range args[2] {
+	for i, r := range args[2] {
 		if r >= '0' && r <= '9' {
 			b = b*10 + int(r-'0')
-		} else if args[2][0] == '-' {
+		} else if i == 0 && r == '-' {
 			d = -1
 		} else {
 			fmt.Println("0")
