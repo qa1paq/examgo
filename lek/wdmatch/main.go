@@ -23,13 +23,14 @@ func main() {
 				counter++
 				break
 			}
+			runeStr := []rune(
 		}
 	}
 
 	if counter != len(runes1) {
 		z01.PrintRune('\n')
 	} else {
-		for _, let := range arg[0] {
+		for _, let := range runes1 {
 			z01.PrintRune(let)
 		}
 		z01.PrintRune('\n')

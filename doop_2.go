@@ -1,3 +1,5 @@
+//
+
 package main
 
 import (
@@ -7,54 +9,58 @@ import (
 
 func main() {
 	args := os.Args[1:]
-	if len(args) > 1 {
-		var result int
-		firstValue := Atoi(args[0])
-		secondValue := Atoi(args[2])
 
-		if args[1] == "*" {
-			result = firstValue * secondValue
-		} else if args[1] == "/" {
-			result = firstValue / secondValue
-		} else if args[1] == "+" {
-			result = firstValue + secondValue
-		} else if args[1] == "-" {
-			result = firstValue - secondValue
-		}
-		fmt.Println(result)
+	a := (Atoi3(args[0]))
+	b := (Atoi3(args[2]))
+	if !IsNumeric(args[0]) || !IsNumeric(args[2]) {
+		return
+	}
+	&&
+	if len(args[0]) > 18 || len(args[2]) > 18 {
+		fmt.Println(0)
+		return
+	}
+
+	if args[1] == "/" && args[2] == "0" {
+		fmt.Println("No division by 0")
+	} else if args[1] == "%" && args[2] == "0" {
+		fmt.Println("No modulo by 0")
+	} else if args[1] == "+" {
+		fmt.Println(a + b)
+		return
+	} else if args[1] == "*" {
+		fmt.Println(a * b)
+	} else if args[1] == "/" {
+		fmt.Println(a / b)
 	} else {
-		fmt.Println()
+		return
 	}
 }
 
-func Atoi(s string) int {
-	n := 0
-	runeStr := []rune(s)
-	isPositive := 1
-	i := 0
-	for _, j := range runeStr {
-		if j >= 0 || j <= 9 {
-			if runeStr[0] == '-' {
-				isPositive = -1
-				i = 1
-			}
-			if runeStr[0] == '+' {
-				i = 1
-			}
-
-			for ; i < len(runeStr); i++ {
-				if runeStr[i] > 47 && runeStr[i] < 59 {
-					n = n * 10
-					n = n + int(rune(runeStr[i]-48))
-				} else {
-					return 0
-				}
-			}
-			// if n < 9199999999999999999 && n > -9199999999999999999 {
-			// 	return 0
-			// }
-			return n * isPositive
+func IsNumeric(s string) bool {
+	var str string
+	for i := 0; i < len(s); i++ {
+		if s[i] >= '0' && s[i] <= '9' || s[i] == '-' {
+			str = str + string(rune(s[i]))
 		}
 	}
-	return 0
+	if str == s {
+		return true
+	}
+	return false
+}
+
+func Atoi3(s string) int {
+	sign := 1
+	result := 0
+	for _, r := range s {
+		if r == '-' {
+			sign = -1
+		}
+		if r >= '0' && r <= '9' {
+			result = result * 10
+			result = result + int(rune(r)-48)
+		}
+	}
+	return result * sign
 }
