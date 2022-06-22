@@ -1,19 +1,17 @@
 package main
 
 import (
-	"os"
-
 	"github.com/01-edu/z01"
 )
 
 func main() {
-	arg := os.Args[1:]
-	if len(arg) != 2 {
-		return
-	}
+	// arg := os.Args[1:]
+	// if len(arg) != 2 {
+	// 	return
+	// }
 
-	runes1 := []rune(arg[0])
-	runes2 := []rune(arg[1])
+	runes1 := "faya"
+	runes2 := "fgvvfdxcacpolhyghbred"
 	counter := 0
 	k := 0
 	for i := 0; i < len(runes1); i++ {
@@ -23,7 +21,6 @@ func main() {
 				counter++
 				break
 			}
-			runeStr := []rune(
 		}
 	}
 
