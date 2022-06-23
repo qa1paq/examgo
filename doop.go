@@ -6,57 +6,61 @@ import (
 )
 
 func main() {
-	args := os.Args[1:]
-	if len(args) != 3 {
-		fmt.Println()
-		return
-	}
-	d := 1
-	c := 1
-	a := 0
-	b := 0
-	for i, r := range args[0] {
-		if r >= '0' && r <= '9' {
-			a = a*10 + int(r-'0')
-		} else if i == 0 && r == '-' {
-			c = -1
-		} else {
-			fmt.Println("0")
+	argument := os.Args[1:]
+
+	if len(argument) == 3 {
+
+		if !IsNumeric1(argument[0]) || !IsNumeric1(argument[2]) {
 			return
 		}
-	}
-	for i, r := range args[2] {
-		if r >= '0' && r <= '9' {
-			b = b*10 + int(r-'0')
-		} else if i == 0 && r == '-' {
-			d = -1
-		} else {
-			fmt.Println("0")
+
+		a := atoi(argument[0])
+		b := atoi(argument[2])
+		if len(argument[0]) > 18 || len(argument[2]) > 18 {
 			return
-		}
-	}
-	b = b * d
-	a = a * c
-	if args[1][0] == '+' {
-		fmt.Println(a + b)
-	} else if args[1][0] == '-' {
-		fmt.Println(a - b)
-	} else if args[1][0] == '*' {
-		fmt.Println(a * b)
-	} else if args[1][0] == '/' {
-		if b == 0 {
+		} else if argument[1] == "/" && argument[2] == "0" {
 			fmt.Println("No division by 0")
-		} else {
-			fmt.Println(a / b)
-		}
-	} else if args[1][0] == '%' {
-		if b == 0 {
+		} else if argument[1] == "%" && argument[2] == "0" {
 			fmt.Println("No modulo by 0")
-		} else {
+		} else if argument[1] == "+" {
+			fmt.Println(a + b)
+		} else if argument[1] == "-" {
+			fmt.Println(a - b)
+		} else if argument[1] == "*" {
+			fmt.Println(a * b)
+		} else if argument[1] == "/" {
+			fmt.Println(a / b)
+		} else if argument[1] == "%" {
 			fmt.Println(a % b)
 		}
+	}
+}
+
+func atoi(b string) int {
+	a := 0
+	c := 1
+	for _, word := range b {
+		if word == '-' {
+			c = -1
+		}
+		if word >= '0' && word <= '9' {
+			a = a * 10
+			a += (int(word) - '0')
+		}
+	}
+	return a * c
+}
+
+func IsNumeric1(s string) bool {
+	ff := 0
+	for _, b := range s {
+		if b >= '0' && b <= '9' || b == '-' {
+			ff++
+		}
+	}
+	if ff == len(s) {
+		return true
 	} else {
-		fmt.Println("0")
-		return
+		return false
 	}
 }

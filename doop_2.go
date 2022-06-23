@@ -1,5 +1,3 @@
-//
-
 package main
 
 import (
@@ -15,7 +13,6 @@ func main() {
 	if !IsNumeric(args[0]) || !IsNumeric(args[2]) {
 		return
 	}
-	&&
 	if len(args[0]) > 18 || len(args[2]) > 18 {
 		fmt.Println(0)
 		return
