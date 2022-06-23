@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	var b byte = 0100
+	var b byte = 4
 	fmt.Println(SwapBits(b))
 }
 

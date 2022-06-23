@@ -23,7 +23,7 @@ func main() {
 		return
 	}
 	res := ToRoman(num)
-	fmt.Printf("%s\n", res)
+	fmt.Println(res)
 }
 
 func ToRoman(num int) string {

@@ -9,13 +9,14 @@ import (
 
 func main() {
 	args := os.Args[1:]
-
+	if len(args) == 0 {
+		return
+	}
 	a := (Atoi3(args[0]))
 	b := (Atoi3(args[2]))
 	if !IsNumeric(args[0]) || !IsNumeric(args[2]) {
 		return
 	}
-	&&
 	if len(args[0]) > 18 || len(args[2]) > 18 {
 		fmt.Println(0)
 		return

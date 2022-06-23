@@ -11,7 +11,7 @@ func main() {
 	// }
 
 	runes1 := "faya"
-	runes2 := "fgvvfdxcacpolhyghbred"
+	runes2 := "fgvvfdxcacpolhyghbreda"
 	counter := 0
 	k := 0
 	for i := 0; i < len(runes1); i++ {
