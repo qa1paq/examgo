@@ -1,40 +1,41 @@
 package main
 
 import (
-	"fmt"
 	"os"
+
+	"github.com/01-edu/z01"
 )
 
 func main() {
-	args := os.Args[1:]
-	if len(args) == 1 {
-		num := Atoi2(args[0])
-		if num == 2 {
-			fmt.Println("true")
-			return
-		}
-		i := 0
-		for i*i != num {
-			i++
-			if i*i == num {
-				fmt.Println("true")
-			} else if i*i > num {
-				fmt.Println("false")
-				return
-			}
-		}
+	if len(os.Args) != 2 {
+		return
+	}
+	res := Atoi(os.Args[1])
+	if IsPowerOf2(res) == 0 {
+		PrintRune("true")
 	} else {
-		fmt.Println()
+		PrintRune("false")
 	}
 }
 
-func Atoi2(s string) int {
+func Atoi(str string) int {
 	var n int
-	runeStr := []rune(s)
-
-	for i := 0; i < len(runeStr); i++ {
-		n = n * 10
-		n = n + int(rune(runeStr[i]-48))
+	for _, w := range str {
+		n = n*10 + int(w) - 48
 	}
 	return n
+}
+
+func IsPowerOf2(n int) int {
+	if n == 0 {
+		return 1
+	}
+	return n & (n - 1)
+}
+
+func PrintRune(str string) {
+	for _, w := range str {
+		z01.PrintRune(w)
+	}
+	z01.PrintRune('\n')
 }
