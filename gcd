@@ -1,0 +1,52 @@
+package main
+
+import(
+	"os"
+	"fmt"
+	// "reflect"
+)
+
+func main(){
+	if len(os.Args)!=3{return}
+	var a, b =Atoi(os.Args[1]), Atoi(os.Args[2])
+	var arr_a, arr_b []int
+	var res int
+	arr_a=(CreateArr(a))
+	arr_b=(CreateArr(b))
+
+	for i:=len(arr_a)-1; i>=0; i--{
+		for j:=len(arr_b)-1; j>=0; j--{
+			if arr_a[i]==arr_b[j]{
+				res = res + int(arr_a[i])
+				fmt.Println(res)
+				return
+			}
+		}
+	}
+
+}
+
+func CreateArr(num int) []int{
+	var arr []int
+	for i:=1; i<=num; i++{
+		if num%i==0{
+			arr=append(arr, i)
+		}
+	}
+	return arr
+}
+
+func Atoi(s string) int{
+	sign := 1
+	result := 0
+	for _, r := range s {
+		if r == '-' {
+			sign = -1
+		}
+		if r >= '0' && r <= '9' {
+			result = result * 10
+			result = result + int(rune(r)-48)
+		}
+	}
+	return result * sign
+}
