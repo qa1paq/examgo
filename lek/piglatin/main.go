@@ -1,18 +1,19 @@
 package main
 
 import (
-	"os"
+	// "os"
 
 	"github.com/01-edu/z01"
 )
 
 func main() {
-	if len(os.Args) != 2 {
-		return
-	}
+	// if len(os.Args) != 2 {
+	// 	return
+	// }
 	vowels := "ioueaIOUEA"
 	isVowel := false
-	arg := os.Args[1]
+	// arg := os.Args[1]
+	arg := "ips"
 
 	for _, w := range vowels {
 		if rune(arg[0]) == w {

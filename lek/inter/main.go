@@ -2,16 +2,15 @@ package main
 
 import (
 	"fmt"
-	"os"
 )
 
 func main() {
-	if len(os.Args) != 3 {
-		fmt.Printf("\n")
-		return
-	}
-	arg1 := os.Args[1]
-	arg2 := os.Args[2]
+	// if len(os.Args) != 3 {
+	// 	fmt.Printf("\n")
+	// 	return
+	// }
+	arg1 := "abbcd"
+	arg2 := "ujbs"
 	var result string
 
 	for i := 0; i < len(arg1); i++ {
