@@ -13,6 +13,10 @@ func main() {
 		fmt.Println("Error lenght argument")
 		return
 	}
+	if os.Args[1] != "data.txt" {
+		fmt.Println("not correct file")
+		return
+	}
 	data, err := os.ReadFile(os.Args[1])
 	if err != nil {
 		fmt.Println("no such file or directory")

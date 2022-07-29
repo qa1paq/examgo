@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -12,19 +11,20 @@ import (
 func main() {
 	args := os.Args[1:]
 	if len(args) != 2 {
-		fmt.Println("error: You have to run the programm with 2 arguments.")
+		fmt.Println("Oooh, you have to run the programm with 2 arguments, 1st argument is 'sample.txt' and the 2nd argument is 'result.txt' JUST DO IT!")
 		return
 	}
 	if os.Args[1] != "sample.txt" || os.Args[2] != "result.txt" {
-		fmt.Println("error: Wrong input files.")
+		fmt.Println("Hey? Wrong input files :(")
 		return
 	}
 	content, err := ioutil.ReadFile(args[0])
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println("The system cannot find the file specifiied, please create file with name 'sample.txt' JUST TRY AGAIN :)")
+		return
 	}
 	if len(string(content)) == 0 {
-		fmt.Println("error: File is empty.")
+		fmt.Println("Oooh, file is empty :(")
 		return
 	}
 	vowels := []rune{'a', 'e', 'y', 'u', 'i', 'o', 'h'}
