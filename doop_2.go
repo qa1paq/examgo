@@ -10,8 +10,6 @@ func main() {
 	if len(args) == 0 {
 		return
 	}
-	a := (Atoi3(args[0]))
-	b := (Atoi3(args[2]))
 	if !IsNumeric(args[0]) || !IsNumeric(args[2]) {
 		return
 	}
@@ -19,6 +17,8 @@ func main() {
 		fmt.Println(0)
 		return
 	}
+	a := (Atoi3(args[0]))
+	b := (Atoi3(args[2]))
 
 	if args[1] == "/" && args[2] == "0" {
 		fmt.Println("No division by 0")

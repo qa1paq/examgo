@@ -13,7 +13,7 @@ func main() {
 	vowels := "ioueaIOUEA"
 	isVowel := false
 	// arg := os.Args[1]
-	arg := "ips"
+	arg := "pwig"
 
 	for _, w := range vowels {
 		if rune(arg[0]) == w {

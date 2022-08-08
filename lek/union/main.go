@@ -11,6 +11,7 @@ func main() {
 		return
 	}
 	arg := os.Args[1] + os.Args[2]
+	// arg := "zpadintonpaqefwtdjetyiytjneytjoeyjnejeyj"
 	var res string
 	res += string(arg[0])
 
